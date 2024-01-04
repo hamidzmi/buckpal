@@ -32,4 +32,9 @@ class Money
     {
         return $this->amount >= 0;
     }
+
+    public static function subtract(Money $a, Money $b): Money
+    {
+        return new Money($a->amount - $b->amount);
+    }
 }

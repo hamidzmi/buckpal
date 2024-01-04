@@ -6,7 +6,9 @@ use Illuminate\Support\Collection;
 
 class ActivityWindow
 {
-    private Collection $activities;
+    public function __construct(private readonly Collection $activities)
+    {
+    }
 
     public function calculateBalance(AccountId $accountId): Money
     {
@@ -28,5 +30,10 @@ class ActivityWindow
     public function addActivity(Activity $activity): void
     {
         $this->activities->add($activity);
+    }
+
+    public function getActivities(): Collection
+    {
+        return $this->activities;
     }
 }

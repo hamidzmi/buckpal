@@ -51,6 +51,15 @@ class Account
         return true;
     }
 
+    public static function withId(
+        AccountId $accountId,
+        Money $baselineBalance,
+        ActivityWindow $activityWindow
+    ): Account
+    {
+        return new Account($accountId, $baselineBalance, $activityWindow);
+    }
+
     private function mayWithdraw(Money $money): bool
     {
 		return Money::add($this->calculateBalance(), $money->negate())

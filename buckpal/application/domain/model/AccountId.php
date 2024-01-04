@@ -8,8 +8,13 @@ final class AccountId
     {
     }
 
-    public function equals(AccountId $accountId)
+    public function equals(AccountId $accountId): bool
     {
         return $accountId->value === $this->value;
+    }
+
+    public function getValue(): int
+    {
+        return $this->value;
     }
 }

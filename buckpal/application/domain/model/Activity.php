@@ -4,9 +4,8 @@ namespace Buckpul\Application\Domain\Model;
 
 class Activity
 {
-    private ?ActivityId $id;
-
     public function __construct(
+        private ?ActivityId $id,
         private AccountId $ownerAccountId,
         private AccountId $sourceAccountId,
         private AccountId $targetAccountId,
@@ -14,6 +13,11 @@ class Activity
         private Money $money
     ) {
         $this->id = null;
+    }
+
+    public function getId(): ActivityId
+    {
+        return $this->id;
     }
 
     public function getOwnerAccountId(): AccountId
